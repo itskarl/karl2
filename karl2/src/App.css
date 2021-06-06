@@ -1,38 +1,155 @@
+:root {
+  --dark-blue: #2d3047;
+  --canary: #fffd82;
+  --salmon: #ff9b71;
+  --red: #e84855;
+  --green: #1b998b;
+  --box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+    0 18px 36px -18px rgba(0, 0, 0, 0.3);
+}
+
 .App {
   text-align: center;
+  display: flex;
+  justify-content: center;
+  background-color: #808080;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.main-body {
+  width: 100%;
+}
+.content-block {
+  max-width: 992px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.title {
+  font-weight: bold;
+  text-transform: uppercase;
+  font-size: 1rem;
 }
 
-.App-header {
-  background-color: #282c34;
+.title-2 {
+  font-size: 0.825rem;
+  font-weight: 400;
+}
+
+button {
+  border: none;
+  outline: none;
+  font-family: inherit;
+  background: none;
+  font-size: 1rem;
+}
+
+p {
+  margin: 0;
+}
+
+/* LANDING SECTION */
+
+.section-intro {
+  background: linear-gradient(4deg, var(--dark-blue) 50%, #fff0de 50.1%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #fff0de;
+  position: relative;
+}
+.name-container {
+  position: absolute;
+  top: 43%;
+}
+.name {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--dark-blue);
 }
 
-.App-link {
-  color: #61dafb;
+/* WORK SECTION */
+
+.section-work {
+  background: linear-gradient(4deg, var(--canary) 87%, var(--dark-blue) 87.2%);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.resume-container {
+  padding: 1rem 1rem 1rem 0.5rem;
+  margin: 1rem;
+  border: 1px solid var(--dark-blue);
+  border-radius: 4px;
+  text-align: left;
+  box-shadow: var(--box-shadow);
+}
+
+.job-row {
+  display: flex;
+}
+
+.bullet-container {
+  min-width: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bullet-container.bullet {
+  position: relative;
+  background: linear-gradient(
+    90deg,
+    transparent 45%,
+    var(--dark-blue) 45%,
+    var(--dark-blue) 55%,
+    transparent 55%
+  );
+}
+
+.bullet-container.bullet:after {
+  content: "";
+  height: 0.75rem;
+  width: 0.75rem;
+  position: absolute;
+  top: 0.5rem;
+  left: 1.125rem;
+  border-radius: 50%;
+  background: var(--dark-blue);
+}
+
+.more-info {
+  padding: 1rem;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+.job-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.job-logo {
+  width: 4rem;
+  height: 4rem;
+  margin-right: 1rem;
+  background: #26c6da;
+}
+.job-row > div {
+  padding: 0.5rem 0;
+}
+.job-body {
+  display: flex
+}
+
+.job-logo.unpakt {
+  background: url(/images/res-unpakt.png) no-repeat center center/cover;
+}
+.job-logo.discovery {
+  background: url(/images/res-discovery.jpg) no-repeat center center/cover;
+}
+.job-logo.news{
+  background: url(/images/res-nbcnews.png) no-repeat center center/cover;
 }
