@@ -163,7 +163,7 @@ function App() {
                 design, usability, clean patterns, and design systems.
               </div>
               <div className="bio-face">
-                <img src="myface.png" />
+                <img alt="my face" src="myface.png" />
               </div>
             </div>
           </div>
@@ -174,6 +174,7 @@ function App() {
             <div className="title">RESUME &nbsp;</div>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://docs.google.com/document/d/1t26Q2GkD27utept7YbRbLWLP-UBWSBe_sioL3k0Zshc/edit?usp=sharing"
             >
               <FontAwesomeIcon icon={faFileExport} color="#2d3047" />
