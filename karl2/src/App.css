@@ -4,7 +4,7 @@
   --salmon: #ff9b71;
   --red: #e84855;
   --green: #1b998b;
-  --box-shadow: 0 30px 60px -12px rgba(50, 50, 93, 0.25),
+  --box-shadow: 0 30px 30px -12px rgba(50, 50, 93, 0.25),
     0 18px 36px -18px rgba(0, 0, 0, 0.3);
 }
 
@@ -27,6 +27,9 @@ a {
   color: inherit;
 }
 
+svg {
+  color: var(--dark-blue)
+}
 .title {
   font-weight: bold;
   text-transform: uppercase;
@@ -48,6 +51,11 @@ button {
   font-size: 1rem;
 }
 
+h2,
+p {
+  margin: 0;
+}
+
 /* LANDING SECTION */
 
 .section-intro {
@@ -58,7 +66,6 @@ button {
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-
   position: relative;
 }
 .name-container {
@@ -73,26 +80,56 @@ button {
 
 @media screen and (max-width: 560px) {
   .name {
-    font-size: 2rem
+    font-size: 2rem;
   }
   .name-container {
     top: calc(52.3% - 4rem);
   }
-  
 }
 
+.bio-container {
+  width: 100%;
+  position: absolute;
+  top: 75%;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
+.bio-body {
+  font-size: 1rem;
+  margin: 0.5rem;
+  border: 2px solid var(--dark-blue);
+  box-shadow: var(--box-shadow);
+  max-width: 40rem;
+  border-radius: 10px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.bio-face {
+  width: 5rem;
+  overflow: hidden;
+  min-width: 5rem;
+  height: 9.5rem
+}
+.bio-face img {
+  width: 10rem;
+  height: 10rem;
+}
 
 /* WORK SECTION */
 
 .section-work {
-  background: linear-gradient(4deg, var(--canary) 87%, var(--canary) 87.2%);
+  background: var(--canary);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 6rem 0 3rem 0;
+  padding-bottom: 3rem;
 }
 
 .section-work p {
@@ -164,6 +201,10 @@ button {
   padding: 1rem;
   font-size: 1.25rem;
   cursor: pointer;
+  transition-duration: .3s;
+}
+.more-info:hover  {
+  transform: scale(1.2)
 }
 .job-title {
   font-weight: bold;
@@ -247,8 +288,8 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   position: relative;
+  padding: 6rem 0 3rem 0;
 }
 
 .contact-container {
@@ -263,24 +304,27 @@ button {
 .contact-container i {
   font-size: 0.875rem;
   text-decoration: none;
-  color: white;
+  color: var(--dark-blue);
   line-height: 1rem;
   margin: 4px;
   padding-left: 0.5rem;
   text-align: left;
 }
 .contact-container p:nth-of-type(2) {
-  color: #aad690;
+  color: var(--green);
 }
 .large-icon {
   position: absolute;
   font-size: 18rem;
-  left: 60%;
-  bottom: 24%;
+  left: 78%;
+  bottom: 27%;
   transform: rotate(5deg);
   background: var(--dark-blue);
-  color: white;
+  color: var(--canary);
   text-shadow: 0 5px 5px black;
+}
+.large-icon svg {
+  color: var(--canary)
 }
 @media screen and (max-width: 940px) {
   .large-icon {
@@ -302,11 +346,12 @@ button {
   padding: 1rem;
   font-size: 2rem;
   cursor: pointer;
-  color: white;
+  color: var(--dark-blue);
 }
 .contact-button {
   width: 22rem;
-  background: rgb(53, 72, 112);
+  background: var(--canary);
+  border: 1px solid var(--dark-blue);
   z-index: 1;
   overflow: hidden;
   display: flex;
@@ -324,6 +369,71 @@ button {
   transform: translateY(-2px);
   transition-duration: 0.3s;
   cursor: pointer;
-  background: rgb(79, 101, 148);
   box-shadow: 0 5px 20px 16px #00000021;
+}
+
+/* MODAL */
+.modal-backdrop {
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.2);
+}
+.modal-container {
+  position: fixed;
+  width: 100%;
+  max-width: 30rem;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 101;
+}
+.modal {
+  background: var(--canary);
+  box-shadow: var(--box-shadow);
+  border-radius: 4px;
+  position: relative;
+  text-align: left;
+}
+.modal-close-button {
+  display: flex;
+  cursor: pointer;
+  border-radius: 50%;
+  position: absolute;
+  right: -.75rem;
+  top: -.75rem;
+  color: var(--canary);
+  border: 3px solid var(--canary);
+  align-content: flex-start;
+  background: var(--dark-blue);
+  justify-content: center;
+  padding: 0.3rem .5rem;
+}
+.modal-header {
+  padding: 1.2rem;
+  background: var(--dark-blue);
+  color: var(--canary);
+  border-radius: 4px 4px 0 0;
+}
+.modal-body {
+  padding: 1.2rem;
+  max-width: 500px;
+  text-align: left;
+}
+.modal-body li {
+  margin-left: -1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem
+}
+.modal-content h2 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.8);
+}
+.modal-content p {
+  margin: 0;
+  font-weight: bold;
+  color: #4493c1;
 }
