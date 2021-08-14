@@ -59,7 +59,7 @@ p {
 /* LANDING SECTION */
 
 .section-intro {
-  background: linear-gradient(4deg, var(--canary) 50%, var(--dark-blue) 50.1%);
+  background: linear-gradient(0, var(--canary) 50%, var(--dark-blue) 50.3%);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -411,6 +411,9 @@ p {
   background: var(--dark-blue);
   justify-content: center;
   padding: 0.3rem .5rem;
+}
+.modal-close-button path{
+  fill: white
 }
 .modal-header {
   padding: 1.2rem;
