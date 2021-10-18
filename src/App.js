@@ -412,7 +412,7 @@ function App() {
                   <div className="main-skill">
                     <FontAwesomeIcon icon={faMarker} />
                   </div>
-                  <p>Copywrinting</p>
+                  <p>Copywriting</p>
                 </div>
 
                 <div className="skill-row">
